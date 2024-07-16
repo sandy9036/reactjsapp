@@ -15,7 +15,23 @@ jobs:
 
       # We can also use 'npm install' but this might install break version. To avoid that we are using npm ci that will only preferred versions mentioned in package-lock.json file    
       - name: Install dependecies packages
-        run: npm ci 
-        
+        run: npm ci
+
       - name: Run npm testing
-        run: npm test         
+        run: npm test  
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v4      
+      - name: Install NodeJS  
+        uses: actions/checkout@v4
+        with:
+          node-version: 10
+      - name: Install dependecies packages
+        run: npm ci        
+      - name: Build project
+        run: npm run build
+      - name: Deploy npm package
+        run: echo "Deployed successfully"           

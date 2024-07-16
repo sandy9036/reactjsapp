@@ -1,0 +1,8 @@
+name: Output information on ReactJS project
+on: workflow_dispatch
+jobs:
+  reactjs-output:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Output information
+        run: echo "${{ toJSON(github) }}"

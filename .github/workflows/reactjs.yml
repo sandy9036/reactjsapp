@@ -1,0 +1,16 @@
+name: Test project
+on: push
+jobs:
+  reactjs-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v4
+      - name: Install NodeJS  (# Incase if you need any particular custom versions)
+        uses: actions/checkout@v4
+        with:
+          node-version: '18' 
+      - name: Install dependecies packages
+        run: npm ci (We can also use 'npm install' but this might install break version. To avoid that we are using npm ci that will only preferred versions mentioned in package-lock.json file)
+      - name: Run npm testing
+        run: npm test         

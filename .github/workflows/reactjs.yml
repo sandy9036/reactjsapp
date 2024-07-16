@@ -20,8 +20,8 @@ jobs:
       - name: Run npm testing
         run: npm test  
 
-  deploy:
-    needs: test
+  reactjs-deploy:
+    needs: reactjs-test
     runs-on: ubuntu-latest
     steps:
       - name: Get code
